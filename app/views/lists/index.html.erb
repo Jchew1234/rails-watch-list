@@ -1,4 +1,6 @@
-<h1>List of movies</h1>
+<%= render 'components/banner', photo: 'https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80' %>
+
+<h1>My Lists</h1>
 
 <ul>
   <% @lists.each do |list| %>
@@ -6,5 +8,28 @@
   <% end %>
 </ul>
 
+<%# <div class="card bg-dark text-white">
+  <img class="card-img" src="..." alt="Card image">
+  <div class="card-img-overlay">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+    <p class="card-text">Last updated 3 mins ago</p>
+  </div>
+</div> %>
 
+<div class="row">
+  <% @lists.each do |list| %>
+    <div class="col-sm-4">
+      <div class="card m-2" style = 'width: 18rem;'>
+    <%= image_tag 'https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80', class:"card-img" %>
+      <%# <img class="card-img" src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="Card image"> %>
+        <div class="card-body card-img-overlay">
+          <h5 class="card-title"><%= link_to list.name, list_path(list) %></h5>
+          <%# <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> %>
+          <%# <a href="#" class="btn btn-primary">Go somewhere</a> %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
 <p><%= link_to 'Add a new list', new_list_path(@list) %><p>
